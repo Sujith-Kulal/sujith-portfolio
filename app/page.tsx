@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { CSSProperties } from "react";
 
 const projects = [
@@ -72,6 +71,10 @@ const socials = [
     icon: "mail",
   },
 ];
+
+const basePath =
+  process.env.NEXT_PUBLIC_BASE_PATH ??
+  (process.env.NODE_ENV === "production" ? "/sujith-portfolio" : "");
 
 function Icon({ name }: { name: string }) {
   if (name === "github") {
@@ -222,13 +225,12 @@ export default function Home() {
 
             <div className="hero-card reveal" style={{ "--delay": "0.1s" } as CSSProperties}>
               <div className="avatar">
-                <Image
-                  src="/Gemini_Generated_Image_q8f8uyq8f8uyq8f8.png"
+                <img
+                  src={`${basePath}/profile.png`}
                   alt="Portrait of Sujith Kulal"
                   width={160}
                   height={160}
                   className="avatar-image"
-                  priority
                 />
               </div>
               <div>
