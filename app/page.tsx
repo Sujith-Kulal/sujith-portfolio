@@ -1,4 +1,6 @@
-import type { CSSProperties } from "react";
+const basePath =
+  process.env.NEXT_PUBLIC_BASE_PATH ??
+  (process.env.NODE_ENV === "production" ? "/sujith-portfolio" : "");
 
 const projects = [
   {
@@ -8,15 +10,15 @@ const projects = [
     link: "https://github.com/Sujith-Kulal/NLP-text-to-braille-conversion-using-context-awareness",
   },
   {
-    title: "Kannada Spell Check",
+    title: "NLP-Based Kannada Spell Check",
     description:
-      "Real-time spell checker with edit-distance, transliteration, and Windows app integration.",
+      "Real-time Kannada spell checker with edit-distance, Unicode handling, and Windows app integration.",
     link: "https://github.com/Sujith-Kulal/NLP-Based-Kannada-Spell-Check",
   },
   {
     title: "Bhumi Real Estate",
     description:
-      "Listing platform for land and apartments with filters, maps, and nearby transport detection.",
+      "Property listing platform with filters, maps, and nearby transport detection.",
     link: "https://github.com/Sujith-Kulal/real-estate-listing",
   },
   {
@@ -37,57 +39,67 @@ const projects = [
       "Android authentication flow with register and login activities.",
     link: "https://github.com/Sujith-Kulal/AndroidAuthApp",
   },
+  {
+    title: "DentalCare Mini Project",
+    description:
+      "Dental appointment booking with admin approval and status tracking.",
+    link: "https://github.com/Sujith-Kulal/Dentalcare",
+  },
 ];
 
-const skills = [
-  { title: "Java", level: 88 },
-  { title: "Spring Boot", level: 82 },
-  { title: "React", level: 78 },
-  { title: "Node.js", level: 72 },
-  { title: "NLP", level: 76 },
-  { title: "Android", level: 68 },
-];
-
-const testimonials = [
-  {
-    quote:
-      "Sujith brings a practical mindset and ships clean solutions with strong attention to detail.",
-    name: "Project Mentor",
-    role: "Full Stack Engineer",
-  },
-  {
-    quote:
-      "He balances thoughtful backend design with user-focused front-end execution.",
-    name: "Team Lead",
-    role: "Software Architect",
-  },
+const techCards = [
+  "Python",
+  "Java",
+  "NLP",
+  "React",
+  "Next.js",
+  "Git",
+  "C",
 ];
 
 const stats = [
   { value: "7+", label: "Projects" },
   { value: "3+", label: "Domains" },
-  { value: "2", label: "Major NLP Systems" },
-  { value: "2026", label: "Graduate" },
+  { value: "2026", label: "MCA" },
+  { value: "2", label: "NLP Systems" },
 ];
 
-const socials = [
-  {
-    title: "GitHub",
-    link: "https://github.com/Sujith-Kulal",
-  },
-  {
-    title: "LinkedIn",
-    link: "https://www.linkedin.com/in/sujith-kulal-09a888322/",
-  },
-  {
-    title: "Email",
-    link: "mailto:sujithkulal909@gmail.com",
-  },
+const certifications = [
+  "Java Spring Framework, Spring Boot, Spring AI – Udemy (2026)",
+  "Practical Cyber Security – NPTEL (2025)",
+  "Python Programming – Infosys Springboard (2025)",
 ];
 
-const basePath =
-  process.env.NEXT_PUBLIC_BASE_PATH ??
-  (process.env.NODE_ENV === "production" ? "/sujith-portfolio" : "");
+function SocialIcon({ type }: { type: "github" | "linkedin" | "mail" }) {
+  if (type === "github") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M12 2c-5.52 0-10 4.58-10 10.24 0 4.5 2.86 8.32 6.84 9.66.5.1.68-.22.68-.48v-1.7c-2.78.63-3.36-1.16-3.36-1.16-.46-1.2-1.12-1.52-1.12-1.52-.92-.65.06-.64.06-.64 1.02.08 1.56 1.08 1.56 1.08.9 1.6 2.36 1.13 2.94.86.1-.67.36-1.13.65-1.4-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.04 1.02-2.76-.1-.26-.44-1.3.1-2.7 0 0 .84-.28 2.76 1.06a9.2 9.2 0 0 1 2.5-.35c.86 0 1.72.12 2.5.35 1.92-1.34 2.76-1.06 2.76-1.06.54 1.4.2 2.44.1 2.7.64.72 1.02 1.64 1.02 2.76 0 3.93-2.34 4.8-4.58 5.06.38.34.72 1 .72 2.02v2.98c0 .26.18.58.68.48 3.98-1.34 6.84-5.16 6.84-9.66C22 6.58 17.52 2 12 2z"
+        />
+      </svg>
+    );
+  }
+  if (type === "linkedin") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 8.98h3.96V21H3zM9.16 8.98H13v1.64h.06c.54-1.02 1.86-2.1 3.82-2.1 4.08 0 4.84 2.72 4.84 6.26V21h-3.96v-5.54c0-1.32-.02-3-1.84-3-1.86 0-2.14 1.48-2.14 2.9V21H9.16z"
+        />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.4l8 5.2 8-5.2V7H4zm16 10V9.6l-7.4 4.8a1 1 0 0 1-1.2 0L4 9.6V17h16z"
+      />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
@@ -95,63 +107,64 @@ export default function Home() {
       <header className="site-header">
         <div className="container header-inner">
           <a className="brand" href="#home">
-            Sujith Kulal
+            
           </a>
           <nav className="nav">
             <a href="#about">About</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#testimonials">Testimonials</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
           </nav>
-          <a className="header-cta" href="#contact">
-            Hire me
-          </a>
+          {/* <a className="header-cta" href="#contact">
+            
+          </a> */}
         </div>
       </header>
 
       <main>
         <section id="home" className="hero">
-          <div className="hero-shape shape-one" />
-          <div className="hero-shape shape-two" />
-          <div className="container hero-content">
-            <p className="eyebrow">Developer Portfolio</p>
-            <h1>
-              Full Stack Developer crafting modern, high-impact software for the
-              real world.
-            </h1>
-            <p className="lede">
-              I am a Computer Science graduate specializing in Java, Spring Boot,
-              React, and NLP systems. I build scalable products with clean
-              architecture, strong usability, and measurable impact.
-            </p>
-            <div className="hero-actions">
-              <a className="button primary" href="#portfolio">
-                Explore Work
-              </a>
-              <a className="button ghost" href="#contact">
-                Contact
-              </a>
-            </div>
-            <div className="socials">
-              {socials.map((social) => (
-                <a
-                  key={social.title}
-                  href={social.link}
-                  target="_blank"
-                  rel="noreferrer"
+          <div className="hero-lines" />
+          <div className="container hero-grid">
+            <div className="hero-text">
+              <p className="eyebrow"></p>
+              <h1>Sujith Kulal</h1>
+              <h2>Full Stack Developer | AI & NLP Enthusiast</h2>
+              <p className="lede">
+                Passionate about building intelligent systems and modern web
+                applications.
+              </p>
+              <div className="hero-actions">
+                {/* <a
+                  className="button primary"
+                  href={`${basePath}/Sujith_Kulal_CV.pdf`}
                 >
-                  {social.title}
+                  Download CV
+                </a> */}
+                <a className="button ghost" href="#projects">
+                  View Projects
                 </a>
-              ))}
+              </div>
+              <div className="socials">
+                <a href="https://github.com/Sujith-Kulal" target="_blank" rel="noreferrer">
+                  <SocialIcon type="github" />
+                </a>
+                <a href="https://www.linkedin.com/in/sujith-kulal-09a888322/" target="_blank" rel="noreferrer">
+                  <SocialIcon type="linkedin" />
+                </a>
+                <a href="mailto:sujithkulal909@gmail.com">
+                  <SocialIcon type="mail" />
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="hero-image-wrap">
-            <div className="hero-image-ring" />
-            <img
-              src={`${basePath}/profile.png`}
-              alt="Portrait of Sujith Kulal"
-              className="hero-image"
-            />
+            <div className="hero-profile">
+              <div className="hero-image-frame">
+                <img
+                  src={`${basePath}/profile.png`}
+                  alt="Portrait of Sujith Kulal"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
@@ -159,38 +172,84 @@ export default function Home() {
           <div className="container">
             <div className="section-head">
               <p className="eyebrow">About</p>
-              <h2>Focused on backend strength and polished user experiences.</h2>
+              <h2>Motivated MCA student focused on AI, NLP, and full-stack.</h2>
               <p className="lede">
-                I enjoy solving practical problems using technology and have a
-                strong interest in AI, NLP, and backend development. I am eager
-                to learn, grow, and contribute to innovative software solutions
-                in dynamic environments.
+                I am a motivated MCA student with a strong interest in AI, NLP,
+                and full-stack development. I enjoy solving real-world problems
+                through clean architecture, scalable systems, and modern web
+                experiences.
               </p>
             </div>
-            <div className="skills-grid">
-              {skills.map((skill) => (
-                <div key={skill.title} className="skill-row">
-                  <div className="skill-label">
-                    <span>{skill.title}</span>
-                    <span>{skill.level}%</span>
-                  </div>
-                  <div className="skill-bar">
-                    <span
-                      className="skill-fill"
-                      style={{ "--level": `${skill.level}%` } as CSSProperties}
-                    />
-                  </div>
+            <div className="card-grid">
+              {techCards.map((tech) => (
+                <div key={tech} className="chip-card">
+                  {tech}
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="portfolio" className="section">
+        <section id="education" className="section">
           <div className="container">
             <div className="section-head">
-              <p className="eyebrow">Portfolio</p>
-              <h2>Selected projects with measurable outcomes.</h2>
+              <p className="eyebrow">Education</p>
+              <h2></h2>
+            </div>
+            <div className="two-col">
+              <div className="card">
+                <h3>MCA – MITE Moodabidri</h3>
+                <p className="muted">2024 – 2026</p>
+              </div>
+              <div className="card">
+                <h3>BCA – St Mary’s College, Shirva</h3>
+                <p className="muted">2021 – 2024</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" className="section">
+          <div className="container">
+            <div className="section-head">
+              <p className="eyebrow">Skills & Technologies</p>
+              <h2></h2>
+            </div>
+            <div className="card-grid">
+              {techCards.map((tech) => (
+                <div key={tech} className="chip-card">
+                  {tech}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="internship" className="section">
+          <div className="container">
+            <div className="section-head">
+              <p className="eyebrow">Internship</p>
+              <h2>MIT Manipal | Developer Intern</h2>
+              <p className="muted">Sep 2025 – Dec 2025</p>
+            </div>
+            <div className="card">
+              <h3>NLP-based Kannada Spell Checker</h3>
+              <p className="lede">
+                Developed a real-time Kannada spell checker using edit distance
+                algorithm, dictionary lookup, Unicode processing, and
+                transliteration. Integrated with Windows apps (Notepad & MS Word)
+                using Win32 API and UI Automation. Implemented advanced NLP
+                techniques for accurate error detection and correction.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" className="section">
+          <div className="container">
+            <div className="section-head">
+              <p className="eyebrow">Projects</p>
+              <h2></h2>
             </div>
             <div className="portfolio-grid">
               {projects.map((project) => (
@@ -221,20 +280,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="testimonials" className="section">
+        <section id="certifications" className="section">
           <div className="container">
             <div className="section-head">
-              <p className="eyebrow">Testimonials</p>
-              <h2>Trusted by mentors and teammates.</h2>
+              <p className="eyebrow">Certifications</p>
+              <h2></h2>
             </div>
-            <div className="testimonial-grid">
-              {testimonials.map((testimonial) => (
-                <div key={testimonial.name} className="testimonial-card">
-                  <p className="quote">“{testimonial.quote}”</p>
-                  <div className="testimonial-meta">
-                    <span>{testimonial.name}</span>
-                    <span>{testimonial.role}</span>
-                  </div>
+            <div className="card-grid">
+              {certifications.map((cert) => (
+                <div key={cert} className="card">
+                  {cert}
                 </div>
               ))}
             </div>
@@ -265,7 +320,7 @@ export default function Home() {
       <footer className="footer">
         <div className="container">
           <span>Designed and built by Sujith Kulal.</span>
-          <span>Based in India. Available worldwide.</span>
+          <span></span>
         </div>
       </footer>
     </div>
